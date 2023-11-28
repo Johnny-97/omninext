@@ -1,0 +1,111 @@
+@import url('../../styles.less');
+
+::ng-deep p-password.ng-dirty>div>input[type="password"]::placeholder {
+    color: red;
+    opacity: 1;
+}
+
+label[outside] {
+    margin-top: 5px;
+    margin-left: 3px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+::ng-deep .p-checkbox-box {
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+
+    &.p-highlight {
+        border-color: @main-color !important;
+        background: @main-color !important;
+    }
+
+    &.p-focus {
+        box-shadow: 0 0 0.2rem lighten(@main-color, 10%) !important;
+        border-color: @main-color  !important;
+    }
+}
+
+::ng-deep .p-inputtext {
+    transition: 1s;
+
+    &:hover {
+        box-shadow: 0 0 20px @main-color;
+        background-color: lighten(@main-color, 50%);
+    }
+
+    &:enabled:focus {
+        box-shadow: 0 0 25px darken(@main-color, 5%);
+        border-color: @main-color;
+        animation: inputFocus 2s linear infinite;
+        background-color: lighten(@main-color, 47%);
+    }
+}
+
+@keyframes inputFocus {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px darken(@main-color, 5%);
+    }
+
+    50% {
+        box-shadow: 0 0 30px darken(@main-color, 10%);
+    }
+}
+
+::ng-deep .p-button {
+    position: relative;
+    margin-top: 20px;
+    // width: -webkit-fill-available;
+    background: lighten(@main-color, 20%);
+    color: darken(@main-color, 10%);
+    z-index: 2;
+    border-radius: 5px;
+    border: 3px solid @main-color;
+    text-decoration: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 1s;
+
+    &:focus {
+        box-shadow: 0 0 0.2rem @main-color;
+    }
+
+    &:enabled:hover {
+        background: @main-color;
+        color: darken(@main-color, 20%);
+        border-color: darken(@main-color, 10%);
+        box-shadow: 0 0 30px @main-color;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        border-radius: 2px;
+        background: lighten(@main-color, 30%);
+        z-index: -1;
+    }
+
+    & .glowing {
+        position: absolute;
+        inset: 0;
+        display: block;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 80%;
+            width: 80px;
+            height: 4px;
+            background: @main-color;
+        }
+    }
+}

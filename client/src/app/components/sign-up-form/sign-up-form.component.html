@@ -1,0 +1,59 @@
+<div [formGroup]="form" class="m-5 pt-3">
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <h5>Nome</h5>
+            <div class="p-float-label p-fluid">
+                <input id="nome" type="text" pInputText [formControl]="nome" class="p-inputtext-lg"
+                    [ngClass]="hasError(nome)">
+                <label for="nome mt-5">Nome</label>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <h5>Cognome</h5>
+            <div class="p-float-label p-fluid">
+                <input id="cognome" type="text" pInputText [formControl]="cognome" class="p-inputtext-lg"
+                    [ngClass]="hasError(cognome)">
+                <label for="cognome">Cognome</label>
+            </div>
+        </div>
+    </div><!-- end row -->
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <h5>Password</h5>
+            <div class="p-fluid">
+                <p-password [formControl]="password" placeholder="mario97" class="p-inputtext-lg" [feedback]="false">
+                </p-password>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <h5>Conferma password</h5>
+            <div class="p-fluid">
+                <p-password [formControl]="conferma" placeholder="confermaMario97" class="p-inputtext-lg"
+                    [feedback]="false"></p-password>
+            </div>
+        </div>
+        <div class="col-12 p-error block" *ngIf="passwordMatchError">
+            Le due password non coincidono
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="field-checkbox">
+                <p-checkbox [formControl]="sesso" [binary]="true" inputId="sesso"></p-checkbox>
+                <label for="sesso" outside>Uomo</label>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="field-checkbox">
+                <p-checkbox [formControl]="maggiorenne" [binary]="true" inputId="maggiorenne"></p-checkbox>
+                <label for="maggiorenne" outside>Maggiorenne</label>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6 d-flex flex-row gap-3">
+                <p-button label="Submit" (click)="save()" styleClass="glowing" [disabled]="form.invalid"></p-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- {{form.value |json}} -->

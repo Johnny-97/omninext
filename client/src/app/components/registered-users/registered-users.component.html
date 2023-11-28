@@ -1,0 +1,26 @@
+<p-table [value]="(users$ | async)!" [paginator]="paginator" [rows]="20">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of cols">
+                {{col.label}}
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td *ngFor="let col of cols; let i = index">
+                <div [innerHTML]="cols[i].transform(user)"></div>
+            </td>
+            <td>
+            <a [routerLink]="'/user/'+user.id">
+                <div class="d-flex align-items-center">
+                    <span>{{user.id}}</span>
+                </div>
+            </a>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

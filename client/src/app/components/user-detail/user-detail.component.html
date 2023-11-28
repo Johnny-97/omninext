@@ -1,0 +1,7 @@
+<span *ngIf="showError">
+    <b>Errore!</b> Non è stato trovato alcun utente con id: {{id}}
+</span>
+
+<span *ngIf="!showError">
+    {{user | json}}
+</span>

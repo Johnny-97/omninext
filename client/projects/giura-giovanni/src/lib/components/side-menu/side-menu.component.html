@@ -1,0 +1,14 @@
+<span class="sidebar glass">
+    <h3 class="text-center">Menù</h3>
+    <ul>
+        <li *ngFor="let item of items" class="mt-1">
+            <a [routerLink]="item.link" routerLinkActive="activeLink" [style.--text]="item.label">
+                <div class="d-flex align-items-center">
+                    <div></div>
+                    <i [class]="item.icon"></i>
+                    <span>{{item.label}}</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</span>
